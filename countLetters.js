@@ -41,9 +41,9 @@ const test = {
   n: 1,
 };
 
-console.log(countLetters("lighthouse in the house"));
+const resultTest = countLetters("lighthouse in the house");
 
-assertEqual(test["l"], 1);
-assertEqual(test["i"], 2);
-assertEqual(test["g"], 1);
-assertEqual(test["e"], 3);
+assertEqual(test["l"], resultTest["l"]);
+assertEqual(test["i"], resultTest["i"]);
+assertEqual(test["g"], resultTest["g"]);
+assertEqual(test["e"], resultTest["e"]);
