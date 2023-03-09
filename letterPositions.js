@@ -22,26 +22,29 @@ const assertArraysEqual = function(arrX,arrY) {
   }
 };
 
+
 const letterPositions = function(sentence) {
   const results = {};
-  // logic to update results here
-  return results;
-};
+  let i = 0;
 
-const countLetters = function(sentence) {
-  const results = {};
-
-  for (const letter of sentence) {
+  for (let letter of sentence) {
     if (letter !== " ") {
       if (results[letter]) {
-        results[letter] += 1;
-      } else {
-        results[letter] = 1;
+        results[letter].push(i);
+      } 
+      else {
+        results[letter] = [];
+        results[letter].push(i);
       }
+      i += 1;
+    } else {
+      i += 1;
     }
   }
+
   return results;
 };
+
 
 
 const test = { 
@@ -58,8 +61,9 @@ const test = {
 };
 
 console.log(letterPositions("lighthouse in the house"));
+const resultTest = letterPositions("lighthouse in the house");
 
-assertArraysEqual(test["l"], [0]);
-assertArraysEqual(test["i"], [1, 11]);
-assertArraysEqual(test["g"], [2]);
-assertArraysEqual(test["e"], [9, 16, 22]);
+assertArraysEqual(test["l"], resultTest["l"]);
+assertArraysEqual(test["i"], resultTest["i"]);
+assertArraysEqual(test["g"], resultTest["g"]);
+assertArraysEqual(test["e"], resultTest["e"]);
