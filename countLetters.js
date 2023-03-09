@@ -25,7 +25,7 @@ const countLetters = function(sentence) {
     }
   }
   return results;
-}
+};
 
 
 const test = {
