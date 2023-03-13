@@ -1,12 +1,17 @@
 // FUNCTION IMPLEMENTATION
 const head = function(arrX) {
+  //filter by input's type
   if (typeof arrX !== "object") {
     return arrX;
-  } else if (arrX.length === 0) {
+  } 
+  
+  //filter by input's length
+  if (arrX.length === 0) {
     return undefined;
-  } else {
-    return arrX[0];
-  }
+  } 
+  
+  //Happy Path
+  return arrX[0];
 };
 
 module.exports = head;
