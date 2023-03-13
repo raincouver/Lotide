@@ -1,4 +1,6 @@
-// FUNCTION IMPLEMENTATION
+const eqArrays = require('./eqArrays');
+
+/* // FUNCTION IMPLEMENTATION
 const eqArrays = function(arrX,arrY) {
 
   if (arrX.length === arrY.length) {
@@ -10,18 +12,27 @@ const eqArrays = function(arrX,arrY) {
     return false;
   }
   return false;
-};
+
+  // if (arrX.length !== arrY.length) {
+  //   return false;
+  // }
+  // for (let i of arrX){
+  //   if (arrX[i] !== arrY[i]) {
+  //     return false;
+  //   }
+  // }
+  // return true;
+
+}; */
 
 // FUNCTION IMPLEMENTATION
 const assertArraysEqual = function(arrX,arrY) {
-  if (eqArrays(arrX,arrY)) {
-    console.log(`✅Assertion Passed: ${arrX} === ${arrY} ✅`);
-  } else if (!eqArrays(arrX,arrY)) {
-    console.log(`❌Assertion Failed: ${arrX} !== ${arrY} ❌`);
+  if (!eqArrays(arrX,arrY)) {
+    console.log(`❌❌Assertion Failed: ${arrX} !== ${arrY}\n`);
+    return;
   }
+  console.log(`✅✅Assertion Passed: ${arrX} === ${arrY}\n`);
 };
 
-assertArraysEqual([1, 2, 3], [1, 2, 3]); // => should PASS
-assertArraysEqual([], [0, 2, 3]); // => should FAIL
-assertArraysEqual([3, 2, 1], [1, 2, 3]); // => should FAIL
-assertArraysEqual([1, 2, 3], [1, 2, 3, 4]); // => should FAIL
+module.exports = assertArraysEqual;
+
