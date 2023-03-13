@@ -27,10 +27,14 @@ const eqArrays = function(arrX,arrY) {
 
 // FUNCTION IMPLEMENTATION
 const assertArraysEqual = function(arrX,arrY) {
+  
+  //Assertion fails if two arrays are not equal
   if (!eqArrays(arrX,arrY)) {
     console.log(`❌❌Assertion Failed: ${arrX} !== ${arrY}\n`);
     return;
   }
+
+  //Happy Path
   console.log(`✅✅Assertion Passed: ${arrX} === ${arrY}\n`);
 };
 
