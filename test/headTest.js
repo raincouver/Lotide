@@ -1,22 +1,31 @@
 // test/assertEqualTest.js
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const head = require('../head');
 
+
 // TEST CODE
-console.log('//assertEqual(head([5,6,7]), 5) Should Pass✅');
-assertEqual(head([5,6,7]), 5);
+describe("#head", () => {
+  it("returns 1 for [1, 2, 3]", () => {
+    assert.strictEqual(head([1, 2, 3]), 1);
+  });
 
-console.log('//assertEqual(head([]), 0) Should Fail❌');
-assertEqual(head([]), 0);
+  it("returns '5' for ['5']", () => {
+    assert.strictEqual(head(['5']), '5');
+  });
 
-console.log('//assertEqual(head([5]), 5) Should Pass✅');
-assertEqual(head([5]), 5);
+  it("returns 5 for 5", () => {
+    assert.strictEqual(head(5), 5);
+  });
 
-console.log('//assertEqual(head(5), 5) Should Pass✅');
-assertEqual(head(5), 5);
+  it("returns 5 for [5]", () => {
+    assert.strictEqual(head([5]), 5);
+  });
 
-console.log('//assertEqual(head(), 0) Should Fail❌');
-assertEqual(head(), 0);
+  it("returns undefined for []", () => {
+    assert.strictEqual(head([]), undefined);
+  });
 
-console.log('//assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello")  Should Pass✅');
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
+  it("returns 'Hello' for ['Hello', 'Lighthouse', 'Labs']", () => {
+    assert.strictEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
+  });
+});

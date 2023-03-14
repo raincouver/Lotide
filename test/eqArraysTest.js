@@ -1,14 +1,23 @@
-const assertEqual = require('../assertEqual');
+// test/assertEqualTest.js
+const assert = require('chai').assert;
 const eqArrays = require('../eqArrays');
 
-console.log('//eqArrays([1, 2, 3], [1, 2, 3]) Should Pass✅');
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
 
-console.log('//eqArrays([], [0, 2, 3]), true) Should Fail❌');
-assertEqual(eqArrays([], [0, 2, 3]), true); // => should FAIL
+// TEST CODE
+describe("#eqArrays", () => {
+  it("returns true for eqArrays([1, 2, 3], [1, 2, 3])", () => {
+    assert.strictEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+  });
 
-console.log('//eqArrays([3, 2, 1], [1, 2, 3]) Should Fail❌');
-assertEqual(eqArrays([3, 2, 1], [1, 2, 3]), true); // => should FAIL
+  it("returns false for eqArrays([], [0, 2, 3])", () => {
+    assert.strictEqual(eqArrays([], [0, 2, 3]), false);
+  });
 
-console.log('//eqArrays([1, 2, 3], [1, 2, 3, 4]) Should Fail❌');
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3, 4]), true); // => should FAIL
+  it("returns false for eqArrays([3, 2, 1], [1, 2, 3])", () => {
+    assert.strictEqual(eqArrays([3, 2, 1], [1, 2, 3]), false);
+  });
+
+  it("returns false for eqArrays([1, 2, 3], [1, 2, 3, 4])", () => {
+    assert.strictEqual(eqArrays([1, 2, 3], [1, 2, 3, 4]), false);
+  });
+});
